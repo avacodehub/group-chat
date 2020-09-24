@@ -1,5 +1,17 @@
+:root {
+ --primary-color: #180024;
+}
+
 body {
-  background-color: #282c34;
+  box-sizing: content-box;
+  background: rgb(24, 0, 36);
+  background: linear-gradient(
+    11deg,
+    rgba(24, 0, 36, 0.8158613787311799) 0%,
+    rgba(9, 113, 121, 0.8578781854538691) 44%,
+    rgba(0, 254, 255, 0.8298669809720763) 100%
+  );
+  background-attachment: fixed;
 }
 
 .App {
@@ -9,8 +21,8 @@ body {
 }
 
 .App header {
-  background-color: #181717;
-  height: 10vh;
+  background-color: rgb(0, 0, 0);
+  height: 6vh;
   min-height: 50px;
   color: white;
   position: fixed;
@@ -21,7 +33,7 @@ body {
   align-items: center;
   justify-content: space-between;
   z-index: 99;
-  padding: 10px;
+  padding: 20px;
   box-sizing: border-box;
 }
 
@@ -30,13 +42,45 @@ body {
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
-  background-color: rgb(40, 37, 53);
+  background-color: rgb(255, 255, 255);
+}
+
+.signin {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-weight: bolder;
+}
+
+.signin div {
+  margin: auto auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+}
+
+.signin h1 {
+  color: white;
+  font-size: 3rem;
+  text-align: center;
+  text-shadow: rgb(0, 0, 0) 2px 2px 1px;
+}
+
+.signin button {
+  background-color: rgba(0,0,0,.3);
+  border-radius: 2em;
+}
+
+.signin button:hover {
+  background-color: black;
 }
 
 main {
   padding: 10px;
   height: 80vh;
-  margin: 10vh 0 10vh;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -47,18 +91,17 @@ main::-webkit-scrollbar {
 }
 
 main::-webkit-scrollbar-track {
-  background: #1e1e24;
+  background: rgb(179, 179, 179);
 }
 
 main::-webkit-scrollbar-thumb {
-  background: #6649b8;
+  background: #000000;
 }
 
 form {
-  height: 10vh;
   position: fixed;
   bottom: 0;
-  background-color: rgb(24, 23, 23);
+  background-color: rgba(255, 255, 255, 0.76);
   width: 100%;
   max-width: 728px;
   display: flex;
@@ -67,23 +110,23 @@ form {
 
 form button {
   width: 20%;
-  background-color: rgb(56, 56, 143);
+  background-color: rgb(0, 0, 0);
 }
-
 
 input {
   line-height: 1.5;
   width: 100%;
   font-size: 1.5rem;
-  background: rgb(58, 58, 58);
-  color: white;
+  background: rgb(255, 252, 252);
+  color: rgb(0, 0, 0);
   outline: none;
-  border: none;
+  border-top: solid black 2px;
+  border-left: none;
   padding: 0 10px;
 }
 
 button {
-  background-color: #282c34; /* Green */
+  background-color: rgb(0, 0, 0);
   border: none;
   color: white;
   padding: 15px 32px;
@@ -99,7 +142,6 @@ button:disabled {
   cursor: not-allowed;
 }
 
-
 .sign-in {
   color: #282c34;
   background: white;
@@ -107,48 +149,73 @@ button:disabled {
   margin: 0 auto;
 }
 
-
-
-
-ul, li {
+ul,
+li {
   text-align: left;
   list-style: none;
 }
 
 p {
-  max-width: 500px;
-  margin-bottom: 12px;
+  /* max-width: 90%; */
   line-height: 24px;
-  padding: 10px 20px;
-  border-radius: 25px;
   position: relative;
-  color: white;
-  text-align: center;
+  text-align: start;
 }
 
 .message {
+  width: max(80%, 400px);
   display: flex;
   align-items: center;
+  margin: 0.5em 1em;
 }
 
+.message div {
+  border-radius: 0.7em;
+  padding: 0.5em 1em;
+}
 
 .sent {
   flex-direction: row-reverse;
+  margin-left: auto;
 }
 
-.sent p {
-  color: white;
-  background: #0b93f6;
-  align-self: flex-end;
+.sent div {
+  background: rgba(230, 255, 254, 0.815);
 }
+.sent p {
+  color: rgb(19, 12, 12);
+  align-self: flex-end;
+  margin-right: auto;
+}
+
+.received div {
+  background: rgb(224, 224, 224);
+  margin-left: 0;
+}
+
 .received p {
-  background: #e5e5ea;
   color: black;
+  margin-left: 0;
+}
+
+.received p.username {
+  font-size: 0.9em;
+  text-align: start;
+  margin: 0.5em 0;
+  font-weight: bold;
+}
+
+.sent p.username {
+  font-size: 0.9em;
+  text-align: end;
+  margin: 0.5em 0;
+  font-weight: bold;
 }
 
 img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  margin: 2px 5px;
+  margin: 0.5em 0.5em;
+  align-self: flex-start;
 }
