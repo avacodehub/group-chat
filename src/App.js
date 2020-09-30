@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./App.css";
 
 import firebase from "firebase/app";
@@ -55,7 +55,9 @@ const SignIn = () => {
         <div>
           <h1>Try our new realtime chat! </h1>
           {/* <h2>Instant sign in with your Google account</h2> */}
-          <button onClick={signInWithGoogle}>Sign in with Google</button>
+          <button className="btn-large" onClick={signInWithGoogle}>
+            Sign in with Google
+          </button>
         </div>
       </div>
     </>
@@ -91,12 +93,17 @@ const ChatRoom = () => {
     scrollPoint.current.scrollIntoView({ behavior: "smooth" });
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      scrollPoint.current.scrollIntoView({ behavior: "smooth" });
+    }, 2000);
+  }, []);
+
   return (
     <>
       <main>
         {messages &&
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
-
         <div ref={scrollPoint}></div>
       </main>
       <form onSubmit={sendMessage}>
